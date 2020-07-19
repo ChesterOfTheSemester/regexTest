@@ -5,7 +5,7 @@
 char **regexTest(char *pattern, char *subject)
 {
   unsigned int i,j,k,c;
-  regex_t regex; char *rtn[(size_t)0xFFF];
+  regex_t regex; char *rtn[0xFFF];
   regmatch_t regex_matches[(size_t)0xFFF];
 
   if (regcomp(&regex, pattern, REG_EXTENDED)) return 0;
@@ -21,7 +21,7 @@ char **regexTest(char *pattern, char *subject)
 
       char ch[strlen(subject) + 1];
       strcpy(ch, subject); ch[regex_matches[j].rm_eo] = 0;
-      strcpy(rtn[c++]=calloc(1,(size_t)strlen(ch+regex_matches[j].rm_so)), (ch+regex_matches[j].rm_so));
+      if(c++) strcpy(rtn[c-1]=calloc(1,(size_t)strlen(ch+regex_matches[j].rm_so)), (ch+regex_matches[j].rm_so));
     }
 
     subject += k;
