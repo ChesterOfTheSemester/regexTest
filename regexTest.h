@@ -21,7 +21,7 @@ char **regexTest(char *pattern, char *subject)
 
       char ch[strlen(subject) + 1];
       strcpy(ch, subject); ch[regex_matches[j].rm_eo] = 0;
-      if(c++) strcpy(rtn[c-1]=calloc(1,(size_t)strlen(ch+regex_matches[j].rm_so)), (ch+regex_matches[j].rm_so));
+      if(c++>0) strcpy(rtn[(size_t)c-2]=calloc(1,(size_t)strlen(ch+regex_matches[j].rm_so)), (ch+regex_matches[j].rm_so));
     }
 
     subject += k;
